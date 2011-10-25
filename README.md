@@ -14,7 +14,7 @@ Requirements
 --------------------
 * Loggly account
 * rsyslog configured and running
-
+* simplejson
 
 
 Attributes
