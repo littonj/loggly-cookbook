@@ -19,7 +19,7 @@ define :loggly_conf, :action => :create do
   
   # So we don't hammer Loggly's API
   input_port = `cat /var/cache/loggly/#{input_name}.port`
-  if input_port == ""
+  if input_port.to_i == 0
     input_port = `loggly-describe-input -U #{node[:loggly][:username]} -P #{node[:loggly][:password]} -D #{node[:loggly][:domain]} -i #{input_name} -a port`.strip
     file "/var/cache/loggly/#{input_name}.port" do
       content input_port
